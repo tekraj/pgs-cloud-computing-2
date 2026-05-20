@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Alex Morgan — Full Stack Developer projects and work.">
+  <title>Portfolio | Alex Morgan</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ════════════════════════ NAVBAR ════════════════════════ -->
+  <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">&lt;Alex /&gt;</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+              aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-num">01.</span>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><span class="nav-num">02.</span>About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="portfolio.html"><span class="nav-num">03.</span>Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills.html"><span class="nav-num">04.</span>Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="resume.html"><span class="nav-num">05.</span>Résumé</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><span class="nav-num">06.</span>Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="resume.html" class="btn-accent" style="padding: 0.45rem 1.1rem; font-size: 0.78rem;">Resume</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════ PAGE HEADER ════════════════════════ -->
+  <header class="page-header">
+    <div class="container">
+      <span class="page-header-num">03.</span>
+      <h1>Portfolio</h1>
+      <p>A selection of projects I've designed, built, and shipped — from side projects to client work.</p>
+    </div>
+  </header>
+
+  <!-- ════════════════════════ FEATURED PROJECTS ════════════════════════ -->
+  <section class="section-wrapper bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="section-num">→</span> Featured Work</h2>
+        <p class="section-subtitle">Highlighted projects with full case studies.</p>
+      </div>
+
+      <!-- Project 1 -->
+      <div class="row g-0 featured-project align-items-center fp-right mb-5">
+        <div class="col-lg-7 featured-project-img">
+          <img src="assets/images/project-1.svg" alt="E-Commerce Platform">
+        </div>
+        <div class="col-lg-5 featured-project-content ps-lg-4 pt-4 pt-lg-0">
+          <p class="fp-label">Featured Project</p>
+          <h3 class="fp-title"><a href="#">E-Commerce Platform</a></h3>
+          <div class="fp-desc">
+            A full-featured e-commerce solution with product catalogues, cart management, Stripe
+            payments, order tracking, inventory management, and a real-time admin analytics dashboard.
+            Supports 10,000+ concurrent users via horizontal scaling on AWS ECS.
+          </div>
+          <ul class="fp-tech-list">
+            <li>React</li><li>TypeScript</li><li>Node.js</li><li>MongoDB</li><li>Redux</li><li>Stripe</li>
+          </ul>
+          <div class="fp-links">
+            <a href="#" aria-label="View code on GitHub"><i class="bi bi-github"></i></a>
+            <a href="#" aria-label="Open live demo"><i class="bi bi-box-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="row g-0 featured-project align-items-center mb-5">
+        <div class="col-lg-7 order-lg-2 featured-project-img">
+          <img src="assets/images/project-2.svg" alt="Task Management App">
+        </div>
+        <div class="col-lg-5 order-lg-1 featured-project-content pe-lg-4 pt-4 pt-lg-0">
+          <p class="fp-label">Featured Project</p>
+          <h3 class="fp-title"><a href="#">Task Management App</a></h3>
+          <div class="fp-desc">
+            A Trello-inspired productivity tool with drag-and-drop boards, real-time collaboration,
+            task assignments, file attachments, deadline reminders, and per-project burn-down charts.
+            Used by 500+ daily active users.
+          </div>
+          <ul class="fp-tech-list">
+            <li>Vue.js</li><li>Django</li><li>PostgreSQL</li><li>WebSockets</li><li>Celery</li>
+          </ul>
+          <div class="fp-links">
+            <a href="#" aria-label="View code on GitHub"><i class="bi bi-github"></i></a>
+            <a href="#" aria-label="Open live demo"><i class="bi bi-box-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="row g-0 featured-project align-items-center fp-right">
+        <div class="col-lg-7 featured-project-img">
+          <img src="assets/images/project-3.svg" alt="Real-time Chat App">
+        </div>
+        <div class="col-lg-5 featured-project-content ps-lg-4 pt-4 pt-lg-0">
+          <p class="fp-label">Featured Project</p>
+          <h3 class="fp-title"><a href="#">Real-time Chat App</a></h3>
+          <div class="fp-desc">
+            A Slack-inspired communication platform with private/group channels, threaded messages,
+            emoji reactions, file sharing, and end-to-end encryption. Scales to 1,000+ concurrent
+            socket connections via Redis pub/sub.
+          </div>
+          <ul class="fp-tech-list">
+            <li>React</li><li>Socket.io</li><li>Express</li><li>Redis</li><li>AWS S3</li>
+          </ul>
+          <div class="fp-links">
+            <a href="#" aria-label="View code on GitHub"><i class="bi bi-github"></i></a>
+            <a href="#" aria-label="Open live demo"><i class="bi bi-box-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ OTHER PROJECTS ════════════════════════ -->
+  <section class="section-wrapper">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="section-num">→</span> Other Noteworthy Projects</h2>
+        <p class="section-subtitle">A full archive of things I've built.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="webapp">Web App</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="api">API / Back-end</button>
+        <button class="filter-btn" data-filter="tool">Tools</button>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4 project-item" data-category="webapp">
+          <div class="project-card">
+            <img src="assets/images/project-4.svg" alt="Weather Dashboard" class="project-card-img">
+            <div class="project-card-body">
+              <div class="project-card-top">
+                <div class="project-folder"><i class="bi bi-folder2-open"></i></div>
+                <div class="project-card-links">
+                  <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                  <a href="#" aria-label="Live Demo"><i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
+              </div>
+              <h4 class="project-card-title"><a href="#">Weather Dashboard</a></h4>
+              <p class="project-card-desc">
+                A beautiful weather dashboard that visualises 7-day forecasts, hourly data, UV index,
+                air quality, and historical trends using the OpenWeatherMap API.
+              </p>
+              <ul class="project-card-tech">
+                <li>React</li><li>Chart.js</li><li>OpenWeather API</li><li>Tailwind</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4 project-item" data-category="webapp">
+          <div class="project-card">
+            <img src="assets/images/project-5.svg" alt="Blog Platform" class="project-card-img">
+            <div class="project-card-body">
+              <div class="project-card-top">
+                <div class="project-folder"><i class="bi bi-folder2-open"></i></div>
+                <div class="project-card-links">
+                  <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                  <a href="#" aria-label="Live Demo"><i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
+              </div>
+              <h4 class="project-card-title"><a href="#">Blog Platform</a></h4>
+              <p class="project-card-desc">
+                A Next.js-powered CMS blog with SSG/ISR, MDX support, syntax-highlighted code blocks,
+                a custom comment system, newsletter subscriptions, and a headless CMS back-end.
+              </p>
+              <ul class="project-card-tech">
+                <li>Next.js</li><li>MongoDB</li><li>MDX</li><li>Vercel</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4 project-item" data-category="mobile">
+          <div class="project-card">
+            <img src="assets/images/project-6.svg" alt="Fitness Tracker App" class="project-card-img">
+            <div class="project-card-body">
+              <div class="project-card-top">
+                <div class="project-folder"><i class="bi bi-folder2-open"></i></div>
+                <div class="project-card-links">
+                  <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                  <a href="#" aria-label="Live Demo"><i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
+              </div>
+              <h4 class="project-card-title"><a href="#">Fitness Tracker App</a></h4>
+              <p class="project-card-desc">
+                A cross-platform mobile fitness app featuring workout logging, progress charts, social
+                follow system, and achievement badges. Built with React Native and Expo.
+              </p>
+              <ul class="project-card-tech">
+                <li>React Native</li><li>Expo</li><li>Firebase</li><li>Victory Charts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-6 col-lg-4 project-item" data-category="api">
+          <div class="project-card">
+            <div class="project-card-body" style="padding-top: 1.75rem;">
+              <div class="project-card-top">
+                <div class="project-folder"><i class="bi bi-folder2-open"></i></div>
+                <div class="project-card-links">
+                  <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                </div>
+              </div>
+              <h4 class="project-card-title"><a href="#">REST API Boilerplate</a></h4>
+              <p class="project-card-desc">
+                A production-ready Node.js REST API starter with JWT authentication, role-based access
+                control, rate limiting, request logging, Swagger docs, and Docker-Compose setup.
+              </p>
+              <ul class="project-card-tech">
+                <li>Node.js</li><li>Express</li><li>JWT</li><li>Swagger</li><li>Docker</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-md-6 col-lg-4 project-item" data-category="tool">
+          <div class="project-card">
+            <div class="project-card-body" style="padding-top: 1.75rem;">
+              <div class="project-card-top">
+                <div class="project-folder"><i class="bi bi-folder2-open"></i></div>
+                <div class="project-card-links">
+                  <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                  <a href="#" aria-label="npm"><i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
+              </div>
+              <h4 class="project-card-title"><a href="#">CLI Code Generator</a></h4>
+              <p class="project-card-desc">
+                An interactive CLI tool that scaffolds full-stack projects with customisable templates
+                for React, Vue.js, or plain HTML — including ESLint, Prettier, and Git hooks.
+              </p>
+              <ul class="project-card-tech">
+                <li>Node.js</li><li>Commander.js</li><li>Inquirer.js</li><li>npm</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-md-6 col-lg-4 project-item" data-category="webapp">
+          <div class="project-card">
+            <div class="project-card-body" style="padding-top: 1.75rem;">
+              <div class="project-card-top">
+                <div class="project-folder"><i class="bi bi-folder2-open"></i></div>
+                <div class="project-card-links">
+                  <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                  <a href="#" aria-label="Live Demo"><i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
+              </div>
+              <h4 class="project-card-title"><a href="#">Markdown Notes App</a></h4>
+              <p class="project-card-desc">
+                A rich markdown notes application with real-time preview, tagging, full-text search,
+                offline support via Service Workers, and one-click export to PDF.
+              </p>
+              <ul class="project-card-tech">
+                <li>Vue.js</li><li>IndexedDB</li><li>Marked.js</li><li>PWA</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.row -->
+    </div>
+  </section>
+
+  <!-- ════════════════════════ CTA ════════════════════════ -->
+  <section class="section-wrapper bg-alt">
+    <div class="container text-center">
+      <p style="color: var(--accent); font-family: 'Courier New', monospace; font-size: 0.9rem; letter-spacing: 0.1em;">Want to see more?</p>
+      <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-heading); margin-bottom: 1.5rem;">Check out my GitHub for the full archive →</h2>
+      <a href="#" class="btn-accent" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-github me-2"></i>github.com/alexmorgan
+      </a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ FOOTER ════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <a class="footer-brand" href="index.html">&lt;Alex /&gt;</a>
+      <p class="footer-text">Designed &amp; Built by <a href="#">Alex Morgan</a></p>
+      <p class="footer-text" style="opacity: 0.6;">&copy; 2026 · All rights reserved</p>
+      <div class="footer-social">
+        <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="CodePen"><i class="bi bi-code-slash"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

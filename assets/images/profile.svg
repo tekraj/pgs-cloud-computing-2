@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="430" viewBox="0 0 380 430">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#112240"/>
+      <stop offset="100%" stop-color="#0d1b34"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d3054"/>
+      <stop offset="100%" stop-color="#233554"/>
+    </linearGradient>
+    <clipPath id="frame"><rect width="380" height="430" rx="4"/></clipPath>
+  </defs>
+  <rect width="380" height="430" fill="url(#bg)" rx="4"/>
+  <!-- Subtle grid -->
+  <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+    <path d="M30 0L0 0 0 30" fill="none" stroke="rgba(100,255,218,0.04)" stroke-width="1"/>
+  </pattern>
+  <rect width="380" height="430" fill="url(#grid)" rx="4"/>
+  <!-- Head -->
+  <circle cx="190" cy="155" r="78" fill="url(#body)"/>
+  <!-- Neck -->
+  <rect x="168" y="220" width="44" height="30" fill="url(#body)"/>
+  <!-- Shoulders / body -->
+  <ellipse cx="190" cy="360" rx="140" ry="115" fill="url(#body)"/>
+  <!-- Accent border -->
+  <rect x="1" y="1" width="378" height="428" fill="none" stroke="#64ffda" stroke-width="1.5" stroke-opacity="0.25" rx="4"/>
+  <!-- Label pill -->
+  <rect x="90" y="397" width="200" height="24" rx="3" fill="rgba(100,255,218,0.08)"/>
+  <text x="190" y="413" text-anchor="middle" fill="#64ffda" font-family="Courier New, monospace" font-size="11" letter-spacing="1.5">YOUR PHOTO HERE</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b34"/>
+      <stop offset="100%" stop-color="#112240"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg3)"/>
+  <pattern id="grid3" width="30" height="30" patternUnits="userSpaceOnUse">
+    <path d="M30 0L0 0 0 30" fill="none" stroke="rgba(100,255,218,0.04)" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="480" fill="url(#grid3)"/>
+  <!-- Chat UI -->
+  <!-- Sidebar -->
+  <rect x="80" y="70" width="180" height="330" rx="4" fill="rgba(17,34,64,0.95)" stroke="rgba(100,255,218,0.15)" stroke-width="1"/>
+  <rect x="80" y="70" width="180" height="44" rx="4" fill="#233554"/>
+  <text x="170" y="97" text-anchor="middle" fill="#64ffda" font-family="Inter, sans-serif" font-size="12" font-weight="700">Messages</text>
+  <!-- Contact items -->
+  <circle cx="108" cy="135" r="16" fill="rgba(100,255,218,0.15)"/>
+  <text x="108" y="140" text-anchor="middle" fill="#64ffda" font-family="Inter, sans-serif" font-size="11" font-weight="600">JD</text>
+  <rect x="132" y="125" width="90" height="8" rx="2" fill="rgba(204,214,246,0.2)"/>
+  <rect x="132" y="140" width="70" height="6" rx="2" fill="rgba(136,146,176,0.15)"/>
+  <rect x="80" y="160" width="180" height="1" fill="rgba(100,255,218,0.08)"/>
+  <circle cx="108" cy="185" r="16" fill="rgba(100,255,218,0.25)"/>
+  <text x="108" y="190" text-anchor="middle" fill="#64ffda" font-family="Inter, sans-serif" font-size="11" font-weight="600">AM</text>
+  <rect x="132" y="175" width="80" height="8" rx="2" fill="rgba(204,214,246,0.25)"/>
+  <rect x="132" y="190" width="60" height="6" rx="2" fill="rgba(136,146,176,0.15)"/>
+  <!-- Chat Area -->
+  <rect x="275" y="70" width="445" height="330" rx="4" fill="rgba(10,25,47,0.95)" stroke="rgba(100,255,218,0.15)" stroke-width="1"/>
+  <rect x="275" y="70" width="445" height="44" rx="4" fill="#233554"/>
+  <circle cx="304" cy="92" r="15" fill="rgba(100,255,218,0.15)"/>
+  <text x="304" y="97" text-anchor="middle" fill="#64ffda" font-family="Inter, sans-serif" font-size="10" font-weight="600">AM</text>
+  <text x="328" y="97" fill="#ccd6f6" font-family="Inter, sans-serif" font-size="12" font-weight="600">Alex Morgan</text>
+  <!-- Chat bubbles -->
+  <rect x="295" y="135" width="220" height="32" rx="12" fill="rgba(35,53,84,0.9)"/>
+  <text x="405" y="155" text-anchor="middle" fill="#8892b0" font-family="Inter, sans-serif" font-size="10">Hey! How's the project going?</text>
+  <rect x="420" y="185" width="200" height="32" rx="12" fill="rgba(100,255,218,0.15)"/>
+  <text x="520" y="205" text-anchor="middle" fill="#64ffda" font-family="Inter, sans-serif" font-size="10">Great! Just pushed the fix 🚀</text>
+  <rect x="295" y="235" width="160" height="32" rx="12" fill="rgba(35,53,84,0.9)"/>
+  <text x="375" y="255" text-anchor="middle" fill="#8892b0" font-family="Inter, sans-serif" font-size="10">Awesome! Let's ship it.</text>
+  <!-- Input -->
+  <rect x="290" y="358" width="410" height="30" rx="15" fill="rgba(35,53,84,0.8)" stroke="rgba(100,255,218,0.2)" stroke-width="1"/>
+  <text x="316" y="377" fill="rgba(136,146,176,0.5)" font-family="Inter, sans-serif" font-size="10">Type a message…</text>
+  <text x="400" y="456" text-anchor="middle" fill="rgba(100,255,218,0.35)" font-family="Courier New, monospace" font-size="12" letter-spacing="2">[ REAL-TIME CHAT APP — PROJECT SCREENSHOT ]</text>
+</svg>
