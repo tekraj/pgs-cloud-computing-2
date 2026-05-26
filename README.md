@@ -89,19 +89,24 @@ This ensures the database is reachable only from EC2 instances in `pgs-ec2-sg`.
 
 ## Step 5: Create an RDS MySQL Database in Private Subnets (Free Tier)
 
-1. Open **RDS Dashboard -> Create database**.
-2. **Creation method:** Standard create.
-3. **Engine type:** MySQL.
-4. **Template:** Free Tier.
-5. **DB instance identifier:** `pgs-mysql-db`.
-6. Set master username/password.
-7. Keep instance class as `db.t3.micro` (or `db.t2.micro`).
-8. Under **Connectivity**:
+1. First create a DB subnet group using the two private subnets:
+   * Open **RDS -> Subnet groups -> Create DB Subnet Group**.
+   * **Name:** `pgs-db-subnet-group`
+   * **VPC:** `pgs-vpc`
+   * Add subnets: `pgs-private-subnet-1` and `pgs-private-subnet-2`.
+2. Open **RDS Dashboard -> Create database**.
+3. **Creation method:** Standard create.
+4. **Engine type:** MySQL.
+5. **Template:** Free Tier.
+6. **DB instance identifier:** `pgs-mysql-db`.
+7. Set master username/password.
+8. Keep instance class as `db.t3.micro` (or `db.t2.micro`).
+9. Under **Connectivity**:
    * **VPC:** `pgs-vpc`
    * **Public access:** **No**
    * **VPC security group:** Select `pgs-rds-sg`
-   * **DB subnet group:** Use private subnets (`pgs-private-subnet-1` and `pgs-private-subnet-2`)
-9. Create database.
+   * **DB subnet group:** Select `pgs-db-subnet-group`
+10. Create database.
 
 Important: The DB must be in private subnets and must not be publicly accessible.
 
