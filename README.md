@@ -107,7 +107,7 @@ Important: The DB must be in private subnets and must not be publicly accessible
 
 ---
 
-## Step 6: Access EC2, Clone Repo, and Install Docker
+## Step 6: Access EC2, Clone Repo, and Install Docker with aws-setup.sh
 
 1. Change permissions for your private key:
    ```bash
@@ -117,30 +117,36 @@ Important: The DB must be in private subnets and must not be publicly accessible
    ```bash
    ssh -i /path/to/your-key.pem ubuntu@<EC2_PUBLIC_IP>
    ```
-3. Update packages and install Docker + Docker Compose plugin:
+3. Install Git, clone the project repository, and switch into it:
    ```bash
-   sudo apt update && sudo apt upgrade -y
-   sudo apt install -y docker.io docker-compose-plugin git
-   sudo usermod -aG docker $USER
-   newgrp docker
+   sudo apt update
+   sudo apt install -y git
+   git clone https://github.com/tekraj/pgs-cloud-computing-2.git
+   cd pgs-cloud-computing-2
    ```
-4. Clone your repository:
+4. Install Docker using the project setup script 
    ```bash
-   git clone <YOUR_REPOSITORY_URL>
-   cd pgs-cloud-2
+   chmod +x aws-setup.sh
+   sudo bash aws-setup.sh --add-current-user
+   newgrp docker
    ```
 
 ---
 
-## Step 7: Configure Application Environment
+## Step 7: Update docker-compose.yml to Use RDS (No Local Docker MySQL)
 
-Before starting containers, make sure your app points to the private RDS endpoint.
+Students must use the RDS database and not a Docker MySQL container.
 
-1. Copy the **RDS endpoint** from your RDS instance details.
-2. Update your environment/configuration values (for example in `.env`, `docker-compose.yml`, or app config) with:
-   * DB host = `<RDS_ENDPOINT>`
-   * DB port = `3306`
-   * DB username/password = the credentials you set in RDS
+1. Open `docker-compose.yml` in the cloned repository.
+2. Keep the `mysql` service disabled (commented out), because DB is on RDS.
+3. In the `app` service, remove or comment out the `depends_on: mysql` block.
+4. Update these environment values in `app`:
+   * `SPRING_DATASOURCE_URL=jdbc:mysql://<RDS_ENDPOINT>:3306/<DB_NAME>?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC`
+   * `SPRING_DATASOURCE_USERNAME=<RDS_USERNAME>`
+   * `SPRING_DATASOURCE_PASSWORD=<RDS_PASSWORD>`
+5. Also update S3-related values if needed:
+   * `S3_BUCKET_NAME=<YOUR_BUCKET_NAME>`
+   * `AWS_REGION=<YOUR_AWS_REGION>`
 
 ---
 
@@ -173,3 +179,4 @@ docker compose logs -f
 * RDS **Public access = No**.
 * RDS security group allows MySQL `3306` **only from EC2 security group**.
 * IAM role attached to EC2 includes S3 permissions needed for audio uploads.
+* Docker is installed using `aws-setup.sh` from the repository, not manual package commands.
