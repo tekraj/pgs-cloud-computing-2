@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--/* Reusable navbar fragment — included in every authenticated page */-->
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark" style="background-color:#1a1a2e;">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand fw-bold fs-5" th:href="@{/todos}">
+            <i class="bi bi-check2-square me-2 text-primary"></i>TodoApp
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link px-3" th:href="@{/todos}">
+                        <i class="bi bi-list-task me-1"></i>My TODOs
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item dropdown" th:if="${currentUser != null}">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2 px-3" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <!-- Profile picture or initial avatar -->
+                        <span th:if="${currentUserProfileImageUrl != null and !currentUserProfileImageUrl.isEmpty()}">
+                            <img th:src="${currentUserProfileImageUrl}"
+                                 class="rounded-circle border border-secondary"
+                                 width="30" height="30" style="object-fit:cover;" alt="avatar">
+                        </span>
+                        <span th:unless="${currentUserProfileImageUrl != null and !currentUserProfileImageUrl.isEmpty()}"
+                              class="rounded-circle d-inline-flex align-items-center justify-content-center text-white fw-bold"
+                              style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);"
+                              th:text="${#strings.substring(currentUser.username,0,1).toUpperCase()}">U</span>
+                        <span class="text-white-50 small" th:text="${currentUser.username}"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0" style="min-width:180px;">
+                        <li class="px-3 py-2 border-bottom">
+                            <div class="fw-semibold small" th:text="${currentUser.fullName != null and !currentUser.fullName.isEmpty() ? currentUser.fullName : currentUser.username}">Name</div>
+                            <div class="text-muted x-small" style="font-size:11px;" th:text="${currentUser.email}">email</div>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-2" th:href="@{/profile}">
+                                <i class="bi bi-person me-2 text-muted"></i>View Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-2" th:href="@{/profile/edit}">
+                                <i class="bi bi-pencil-square me-2 text-muted"></i>Edit Profile
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider my-1"></li>
+                        <li>
+                            <form th:action="@{/logout}" method="post" class="m-0">
+                                <button type="submit" class="dropdown-item py-2 text-danger">
+                                    <i class="bi bi-box-arrow-right me-2"></i>Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

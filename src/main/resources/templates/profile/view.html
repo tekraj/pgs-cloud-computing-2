@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile — TodoApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f1f5f9; }
+        .profile-card {
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 24px rgba(0,0,0,.06);
+        }
+        .avatar-lg {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,.15);
+        }
+        .avatar-initials-lg {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#6366f1,#8b5cf6);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            border: 4px solid #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,.15);
+        }
+        .stat-pill {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 0.75rem 1.25rem;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .info-row { padding: 0.6rem 0; border-bottom: 1px solid #f1f5f9; }
+        .info-row:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container py-4" style="max-width:700px;">
+
+    <!-- Flash alerts -->
+    <div th:if="${message}" class="alert alert-success alert-dismissible fade show py-2 small" role="alert">
+        <i class="bi bi-check-circle me-1"></i><span th:text="${message}"></span>
+        <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert"></button>
+    </div>
+
+    <div class="card profile-card bg-white overflow-hidden">
+        <!-- Header banner -->
+        <div class="p-0" style="height:90px;background:linear-gradient(135deg,#6366f1,#8b5cf6);"></div>
+
+        <!-- Avatar + name row -->
+        <div class="card-body pt-0 px-4 pb-4">
+            <div class="d-flex align-items-end justify-content-between mb-3" style="margin-top:-50px;">
+                <!-- Avatar -->
+                <div>
+                    <img th:if="${profileImageUrl != null and !profileImageUrl.isEmpty()}"
+                        th:src="${profileImageUrl}"
+                         class="avatar-lg" alt="Profile picture">
+                    <div th:unless="${profileImageUrl != null and !profileImageUrl.isEmpty()}"
+                         class="avatar-initials-lg"
+                         th:text="${#strings.substring(profileUser.username,0,1).toUpperCase()}">U</div>
+                </div>
+                <!-- Edit button -->
+                <a th:href="@{/profile/edit}" class="btn btn-sm text-white"
+                   style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:8px;">
+                    <i class="bi bi-pencil me-1"></i>Edit Profile
+                </a>
+            </div>
+
+            <!-- Name / username -->
+            <h4 class="fw-bold mb-0"
+                th:text="${profileUser.fullName != null and !profileUser.fullName.isEmpty() ? profileUser.fullName : profileUser.username}">Full Name</h4>
+            <p class="text-muted mb-3">
+                <i class="bi bi-at me-1"></i><span th:text="${profileUser.username}">username</span>
+            </p>
+
+            <!-- Bio -->
+            <p th:if="${profileUser.bio != null and !profileUser.bio.isEmpty()}"
+               class="text-secondary mb-3" th:text="${profileUser.bio}"></p>
+
+            <!-- TODO Stats -->
+            <div class="row g-2 mb-4">
+                <div class="col-4">
+                    <div class="stat-pill">
+                        <div class="fw-bold fs-5" style="color:#6366f1;" th:text="${totalCount}">0</div>
+                        <div class="text-muted" style="font-size:11px;">Total TODOs</div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="stat-pill">
+                        <div class="fw-bold fs-5 text-success" th:text="${completedCount}">0</div>
+                        <div class="text-muted" style="font-size:11px;">Completed</div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="stat-pill">
+                        <div class="fw-bold fs-5 text-warning" th:text="${pendingCount}">0</div>
+                        <div class="text-muted" style="font-size:11px;">Pending</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info rows -->
+            <div class="info-row d-flex align-items-center gap-3">
+                <i class="bi bi-envelope text-muted" style="width:20px;"></i>
+                <div>
+                    <div class="text-muted" style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;">Email</div>
+                    <div class="fw-semibold small" th:text="${profileUser.email}">email</div>
+                </div>
+            </div>
+            <div class="info-row d-flex align-items-center gap-3">
+                <i class="bi bi-calendar3 text-muted" style="width:20px;"></i>
+                <div>
+                    <div class="text-muted" style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;">Member Since</div>
+                    <div class="fw-semibold small"
+                         th:text="${profileUser.createdAt != null ? #temporals.format(profileUser.createdAt,'MMMM dd, yyyy') : 'N/A'}">date</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Quick link to todos -->
+    <div class="text-center mt-3">
+        <a th:href="@{/todos}" class="text-decoration-none small" style="color:#6366f1;">
+            <i class="bi bi-list-task me-1"></i>View my TODOs
+        </a>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
