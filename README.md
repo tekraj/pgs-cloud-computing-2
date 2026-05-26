@@ -12,7 +12,7 @@ Do this first so the correct role is available when launching EC2.
 
 1. Go to **AWS Management Console -> IAM**.
 2. Click **Roles** on the left sidebar.
-3. Search for and select **LabRole** (or the role your instructor provided).
+3. Search for and select **LabInstance** .
 4. Click **Add permissions**.
 5. Select **Attach policies directly**.
 6. Search for `AmazonS3FullAccess`.
@@ -100,13 +100,12 @@ This ensures the database is reachable only from EC2 instances in `pgs-ec2-sg`.
 5. **Template:** Free Tier.
 6. **DB instance identifier:** `pgs-mysql-db`.
 7. Set master username/password.
-8. Keep instance class as `db.t3.micro` (or `db.t2.micro`).
-9. Under **Connectivity**:
+8. Under **Connectivity**:
    * **VPC:** `pgs-vpc`
    * **Public access:** **No**
    * **VPC security group:** Select `pgs-rds-sg`
    * **DB subnet group:** Select `pgs-db-subnet-group`
-10. Create database.
+9. Create database.
 
 Important: The DB must be in private subnets and must not be publicly accessible.
 
