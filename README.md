@@ -82,7 +82,7 @@ This ensures the database is reachable only from EC2 instances in `pgs-ec2-sg`.
    * **Subnet:** `pgs-public-subnet-1` (or `pgs-public-subnet-2`)
    * **Auto-assign public IP:** Enable
    * **Security group:** Select existing `pgs-ec2-sg`
-7. Under **Advanced details -> IAM instance profile**, select **LabRole** (or your instructor-provided role with S3 access).
+7. Under **Advanced details -> IAM instance profile**, select **LatInstanceProfile** .
 8. Launch the instance.
 
 ---
