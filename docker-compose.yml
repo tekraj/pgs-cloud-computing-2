@@ -1,24 +1,19 @@
 services:
 
   mysql:
-    image: mysql:8.0
+    image: mariadb:10.11
     container_name: todo-mysql
     restart: unless-stopped
+    command: --skip-ssl
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: tododb
-      MYSQL_USER: todouser
-      MYSQL_PASSWORD: todopassword
+      MARIADB_ROOT_PASSWORD: rootpassword
+      MARIADB_DATABASE: tododb
+      MARIADB_USER: todouser
+      MARIADB_PASSWORD: todopassword
     ports:
-      - "3306:3306"
+      - "3305:3306"
     volumes:
       - ./data/mysql:/var/lib/mysql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
-      interval: 10s
-      timeout: 5s
-      retries: 10
-      start_period: 30s
     networks:
       - todo-network
 
@@ -28,12 +23,13 @@ services:
       dockerfile: Dockerfile
     container_name: todo-app
     restart: unless-stopped
-    expose:
-      - "8080"
+    ports:
+      - "8080:8080"
     depends_on:
-      mysql:
-        condition: service_healthy
+      - mysql
+        
     environment:
+      # useSSL=false explicitly tells Spring Boot not to look for certificates
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tododb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: todouser
       SPRING_DATASOURCE_PASSWORD: todopassword
@@ -47,7 +43,7 @@ services:
     container_name: todo-nginx
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "8081:80"
     depends_on:
       - app
     volumes:
