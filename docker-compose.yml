@@ -43,7 +43,7 @@ services:
     container_name: todo-nginx
     restart: unless-stopped
     ports:
-      - "8081:80"
+      - "80:80"
     depends_on:
       - app
     volumes:
