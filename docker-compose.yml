@@ -1,21 +1,21 @@
 services:
 
-  mysql:
-    image: mariadb:10.11
-    container_name: todo-mysql
-    restart: unless-stopped
-    command: --skip-ssl
-    environment:
-      MARIADB_ROOT_PASSWORD: rootpassword
-      MARIADB_DATABASE: tododb
-      MARIADB_USER: todouser
-      MARIADB_PASSWORD: todopassword
-    ports:
-      - "3305:3306"
-    volumes:
-      - ./data/mysql:/var/lib/mysql
-    networks:
-      - todo-network
+  # mysql:
+  #   image: mariadb:10.11
+  #   container_name: todo-mysql
+  #   restart: unless-stopped
+  #   command: --skip-ssl
+  #   environment:
+  #     MARIADB_ROOT_PASSWORD: rootpassword
+  #     MARIADB_DATABASE: tododb
+  #     MARIADB_USER: todouser
+  #     MARIADB_PASSWORD: todopassword
+  #   ports:
+  #     - "3305:3306"
+  #   volumes:
+  #     - ./data/mysql:/var/lib/mysql
+  #   networks:
+  #     - todo-network
 
   app:
     build:
@@ -25,8 +25,8 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
-    depends_on:
-      - mysql
+    # depends_on:
+    #   - mysql
         
     environment:
       # useSSL=false explicitly tells Spring Boot not to look for certificates
