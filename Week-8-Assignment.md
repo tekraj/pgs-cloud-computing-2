@@ -48,7 +48,7 @@ Use the following network configurations derived from the architecture diagram f
 2. Clone the https://github.com/tekraj/pgs-cloud-computing-2# repository to the server.
 3. Locate the initialization script `aws-setup.sh` inside the repository. Modify its permissions to make it executable and execute it to install all system dependencies (including Docker and Docker Compose).
 4. Open the `docker-compose.yml` file and update the environment variables with your provisioned RDS MySQL database endpoint, username, password, and database name.
-5. Launch the application in detached mode using `docker-compose --build ` and then `docker compose up -d`.
+5. Launch the application in detached mode using `docker-compose build ` and then `docker compose up -d`.
 
 ### Task 6: Routing & Load Balancing
 1. Create a **Target Group** (`Main TG`) targeting instance types on the same custom VPC.
