@@ -24,7 +24,7 @@ Use the following network configurations derived from the architecture diagram f
    * Two public subnets dedicated to the Application Load Balancer (ALB) across two distinct Availability Zones (`us-east-1a` and `us-east-1b`).
    * Two private/app subnets across the different Availability Zones to prepare for compute routing.
 3. Deploy an **Internet Gateway (IGW)** and attach it to your custom VPC.
-4. Configure a **Public Route Table** associated with the two ALB public subnets that routes all external traffic (`0.0.0.0/0`) through the Internet Gateway.
+4. Configure a **Public Route Table** associated with all 4 subnets that routes all external traffic (`0.0.0.0/0`) through the Internet Gateway.
 
 ### Task 2: Security Group Configuration
 1. **ALB Security Group (`ALB SG`):**
